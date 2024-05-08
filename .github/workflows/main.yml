@@ -26,3 +26,4 @@ jobs:
       - name: Deploy Streamlit App
         run: |
           streamlit run streamlit_app.py  # Replace with your app filename
+          
