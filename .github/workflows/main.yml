@@ -1,0 +1,28 @@
+name: Deploy Streamlit App
+
+on:
+  push:
+    branches:
+      - main  # Adjust this branch name if your main branch is different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'  # Specify the Python version your app requires
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Install required packages
+      
+      - name: Deploy Streamlit App
+        run: |
+          streamlit run streamlit_app.py  # Replace with your app filename
